@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Gallery" />
+        <activity android:name=".TextEditorOnGalleryPC" />
+        <activity android:name=".PhotoCardCreate" />
+        <activity android:name=".EyeExercise" />
+        <activity android:name=".EyeSettings" />
+        <activity android:name=".PushNotifActivity" />
+        <activity android:name=".DietInfo"></activity>
     </application>
 
 </manifest>
