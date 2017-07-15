@@ -121,8 +121,8 @@
         <Spinner
             android:id="@+id/spinner_durability_eyeSetting"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_height="wrap_content">
+            android:layout_alignParentRight="true"
         </Spinner>
 
     </RelativeLayout>
