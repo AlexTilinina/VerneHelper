@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Verne Helper</string>
+    <string-array name="diet">
+        <item>Мясо</item>
+        <item>Рыба</item>
+        <item>Птица</item>
+        <item>Яйца</item>
+        <item>Морепродукты</item>
+        <item>Сыр</item>
+        <item>Зеленые овощи</item>
+        <item>Грибы</item>
+    </string-array>
 </resources>

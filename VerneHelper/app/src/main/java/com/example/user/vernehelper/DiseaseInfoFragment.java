@@ -18,9 +18,10 @@ import android.widget.TextView;
 public class DiseaseInfoFragment extends Fragment {
 
     public static final String INFO = "Info";
+    public static final String DIS = "Disease";
     TextView title;
     TextView description;
-    ListView symptoms;
+    TextView symptoms;
 
     @Nullable
     @Override
@@ -32,17 +33,31 @@ public class DiseaseInfoFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Disease disease = (Disease) getArguments().getSerializable(INFO);
+        Bundle args = getArguments();
+        Disease disease = new Disease();
+        if (args != null){
+            disease = (Disease) args.getSerializable(DIS);
+        }
+
 
         title = (TextView) view.findViewById(R.id.title);
         description = (TextView) view.findViewById(R.id.description);
-        symptoms = (ListView) view.findViewById(R.id.symptoms);
+        symptoms = (TextView) view.findViewById(R.id.symptoms);
 
-        title.setText(disease.getName());
-        description.setText(disease.getDescription());
-        symptoms.setAdapter(new ArrayAdapter<>(
-                view.getContext(),
-                android.R.layout.simple_list_item_1,
-                disease.getSymptoms()));
+        if (disease != null){
+            title.setText(disease.getName());
+            description.setText(disease.getDescription());
+            for (String dis: disease.getSymptoms()){
+                symptoms.setText(symptoms.getText() + dis + "\n");
+            }
+        }
+        else {
+            title.setText("Что-то");
+            description.setText("Так");
+            symptoms.setText("Пошло \n Не");
+        }
+
     }
+
+
 }

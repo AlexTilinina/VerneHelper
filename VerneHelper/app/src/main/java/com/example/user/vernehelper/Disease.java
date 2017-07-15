@@ -1,6 +1,7 @@
 package com.example.user.vernehelper;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,13 @@ public class Disease implements Serializable{
     private String name;
     private List<String> symptoms;
     private String description;
+
+    public Disease() {
+        name = "test";
+        symptoms = new ArrayList<>();
+        symptoms.add("ololo");
+        description = "test";
+    }
 
     public Disease(String name, List<String> symptoms, String description) {
         this.name = name;

@@ -39,8 +39,8 @@ public class DiseaseAdapter extends RecyclerView.Adapter<DiseaseAdapter.DiseaseV
         for (String sympt : disease.getSymptoms()){
             desc += sympt + ", ";
         }
-        desc = desc.substring(1).toLowerCase();
-        desc = desc.substring(0, desc.length() - 1);
+        desc = desc.charAt(0) + desc.substring(1).toLowerCase();
+        desc = desc.substring(0, desc.length() - 2);
         holder.description.setText(desc);
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

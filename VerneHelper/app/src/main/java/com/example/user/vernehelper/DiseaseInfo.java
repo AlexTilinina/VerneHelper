@@ -3,7 +3,7 @@ package com.example.user.vernehelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class DiseaseInfo extends AppCompatActivity {
+public class DiseaseInfo extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
