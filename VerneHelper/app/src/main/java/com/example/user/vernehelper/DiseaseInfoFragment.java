@@ -34,10 +34,7 @@ public class DiseaseInfoFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
-        Disease disease = new Disease();
-        if (args != null){
-            disease = (Disease) args.getSerializable(DIS);
-        }
+        Disease disease = (Disease) args.getSerializable(DIS);
 
 
         title = (TextView) view.findViewById(R.id.title);
@@ -47,14 +44,13 @@ public class DiseaseInfoFragment extends Fragment {
         if (disease != null){
             title.setText(disease.getName());
             description.setText(disease.getDescription());
-            for (String dis: disease.getSymptoms()){
+            for (String dis: disease.getSymptoms())
                 symptoms.setText(symptoms.getText() + dis + "\n");
-            }
         }
         else {
             title.setText("Что-то");
-            description.setText("Так");
             symptoms.setText("Пошло \n Не");
+            description.setText("Так");
         }
 
     }

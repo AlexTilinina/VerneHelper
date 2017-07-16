@@ -1,7 +1,9 @@
 package com.example.user.vernehelper;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Surface;
 
 public class DiseaseInfo extends AppCompatActivity{
 
@@ -17,4 +19,5 @@ public class DiseaseInfo extends AppCompatActivity{
                 .replace(R.id.list_frame, listFragment, DiseaseListFragment.LIST)
                 .commit();
     }
+
 }

@@ -3,6 +3,7 @@ package com.example.user.vernehelper;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -27,6 +28,7 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
     DiseaseAdapter diseaseAdapter;
     RecyclerView.LayoutManager layoutManager;
     List<Disease> diseaseList;
+    DiseaseInfoFragment infoFragment;
 
     @Nullable
     @Override
@@ -49,7 +51,7 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
 
     @Override
     public void onDiseaseClick(Disease disease) {
-        DiseaseInfoFragment infoFragment = new DiseaseInfoFragment();
+        infoFragment = new DiseaseInfoFragment();
         Bundle args = new Bundle();
         args.putSerializable(DiseaseInfoFragment.DIS, disease);
         infoFragment.setArguments(args);
@@ -58,7 +60,6 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
             getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.description_frame, infoFragment, DiseaseInfoFragment.INFO)
-                    .addToBackStack(null)
                     .commit();
         } else {
             getFragmentManager()
@@ -68,7 +69,17 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
                     .commit();
 
         }
+    }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (getActivity().getWindowManager().getDefaultDisplay().getRotation() == Surface.ROTATION_0 && infoFragment != null){
+            getFragmentManager()
+                    .beginTransaction()
+                    .hide(infoFragment)
+                    .commit();
+        }
     }
 
     public void createList(){
@@ -76,6 +87,13 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
         List<String> symptoms = new ArrayList<>();
         symptoms.addAll(Arrays.asList(getResources().getStringArray(R.array.diet)));
         diseaseList.add(new Disease("Диета", symptoms, "Диета, которую необходимо соблюдать для поддержания нормального уровня сахара в крови"));
+        String[] diseases = getResources().getStringArray(R.array.disease_names);
+        String [] disDesc = getResources().getStringArray(R.array.disease_descriptions);
+        String [] sympt = getResources().getStringArray(R.array.symptoms);
+        for (int i = 0; i < diseases.length; i++) {
+            String [] symps = sympt[i].split(", ");
+            diseaseList.add(new Disease(diseases[i], Arrays.asList(symps), disDesc[i]));
+        }
     }
 
 }
