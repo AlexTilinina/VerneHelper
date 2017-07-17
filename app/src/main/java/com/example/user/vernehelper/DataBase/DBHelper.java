@@ -17,6 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DiseaseTable.createTable());
         db.execSQL(SymptomsTable.createTable());
+        db.execSQL(ImageTable.createTable());
     }
 
     @Override
