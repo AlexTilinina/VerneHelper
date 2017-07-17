@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\ed8b16dd87097e99530064b100fc83d8d681b2b7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_1ea294e4276a2e817a7e17dc60c4df99f113700a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\26236d5c1bd3c98793afd723ff628c3e8b3e3d0b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_b14360f616f2a6748156d9f3ff35798880111a54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\d14bcebca850e4807c05e32653d50e31eaab373b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_c57ad56376d00ec03eaae7ada45b99e50a2a181a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\7559a5a65b78c1d59e976fb0286e286c89a07221\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_7052476029cf81cbfee64e223ba1d7676495a653.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\92d2844700cbbd5fbcb0e65708ad6dd54c0bbf64\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6314fd1ca55eb2a72d2f6030e4996a2a806eaf25">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_db436189676faf263fe2c4a2fed596a008d744d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\ce6bf16b41a1a2b3e3d3ed9d95f62b08657c86a6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_ed8c195127a5e2f714df680d7fd67c1ccf2b25b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\ca3ca1693637f2ae7df00b0486b837930fddb947\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_c1d4333a8ebc642d0209e0dc2ab8f6b8a8234f1b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\770dff0f7404cfaa93879442f98e4f284882d158\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_72f0b8fcd0db12acd83e326fcb4568ad0d983c41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_82b8825319280380802955d0a6e32af96cfbba30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\86581eabda5db5302dad459fad8ba2af37b44a2d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_e71d3da07c87b55ad7e1de67277e771c28bf4ca1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\e060cff47dbf109e90a17757144d0fe6c9f529e8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_597d9e7fe09178ad1aadbe6749954bde65738bb5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\743e5b815cb17be2cd96f3082d09ada3f5aa34c2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_2d9c5269f878ad427d56bc416443ac7251ebe66a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\8f0ea06ccad74b7ee1d6aab13f9b0761a7954d85\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_a5cf8de63d3f0fb52190396532b07355b50b5534.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\5a0f9866c88a963ef4162217a88ff58bafaeffd2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_634aab87b3d7b21521f45fcd5f8254c9922ed7fa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\ea5b87f2cffb3ac936cd55bdc9efadba32a5b6fc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_703a24bb612233e69a15a0347ac72ee1fc883cdd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_e7d01c0ac3796ed6ea228bca1b3d5c8ab86b3aa2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tony\.android\build-cache\33c67390c919553faf31899cafc14461d5d82c2a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\Study\Git\VerneHelper\app\build\intermediates\pre-dexed\debug\classes_1346692a912b6eb08afe5fffee4e040ba523a3a3.jar" />
+    </item>
+
+</items>

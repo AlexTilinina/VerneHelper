@@ -49,7 +49,10 @@ public class ImageList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
-
+        createDirectory();
+        if (photoInf == null) {
+            photoInf = new ArrayList<>();
+        } else photoInf = imageTable.getModelItems(db);
         // TODO: 17.07.2017 Initialize recycler
         imgRecycler = (RecyclerView) findViewById(R.id.img_recycler);
         verticalLinearLayoutManager = new LinearLayoutManager(this);
@@ -64,9 +67,7 @@ public class ImageList extends AppCompatActivity {
         db = helper.getWritableDatabase();
 
 
-        if (photoInf.get(0) == null) {
-            photoInf = new ArrayList<>();
-        } else photoInf = imageTable.getModelItems(db);
+
 
         // TODO: 17.07.2017 Initialize button
         cameraHelper = new CameraHelper();
@@ -74,13 +75,10 @@ public class ImageList extends AppCompatActivity {
         takePhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createDirectory();
                 saveFullImage();
 
-
-
-            }
-        });
+           }
+       });
 
 
 
@@ -94,13 +92,17 @@ public class ImageList extends AppCompatActivity {
             // Проверяем, содержит ли результат маленькую картинку
             if (data != null) {
                 if (data.hasExtra("data")) {
-                    Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+                  Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+                    data.getExtras().get("data");
                     // TODO Какие-то действия с миниатюрой
-                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),cameraHelper.getImageUri(this,thumbnailBitmap)));
+                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),cameraHelper.getImageUri(this,thumbnailBitmap)));}
+                    else{
+                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),mOutputFileUri));}
 
 
 
-                }
+
+
             }
         }
     }
@@ -110,7 +112,7 @@ public class ImageList extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = new File(directory.getPath() + "/" + "photo_"
                 + System.currentTimeMillis() + ".jpg");
-        mOutputFileUri =Uri.fromFile(file);
+        mOutputFileUri = Uri.fromFile(file);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mOutputFileUri);
         if (Build.VERSION.SDK_INT >= 23) {
             try {
@@ -119,8 +121,8 @@ public class ImageList extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            cameraHelper.alert(this);
             startActivityForResult(intent, CAM_REQUEST);
+           cameraHelper.alert(this);
 
 
         }
