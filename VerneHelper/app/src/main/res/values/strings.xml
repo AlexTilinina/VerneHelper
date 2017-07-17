@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Verne Helper</string>
+    <string-array name="regime">
+        <item>Пользовательский</item>
+        <item>Письмо</item>
+        <item>Чтение</item>
+
+    </string-array>
+    <string-array name="periodicity">
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="durability">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="exercise_one">Быстро и легко моргайте.</string>
+    <string name="exercise_two">Выбираем за окном далекий объект, несколько секунд смотрим вдаль, потом переводим взгляд на окно.</string>
+    <string name="exercise_three">Сидим прямо. Крепко зажмуриваем глаза на 5 секунд, затем широко открываем их. Повторяем</string>
+    <string name="exercise_four">Тремя пальцами каждой руки легко нажмите на верхние веки, через 2 секунды снимите пальцы с век. Повторите</string>
 </resources>
