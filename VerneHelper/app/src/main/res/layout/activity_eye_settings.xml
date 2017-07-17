@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,7 @@
     tools:context="com.example.user.vernehelper.EyeSettings">
 
     <RelativeLayout
+        android:id="@+id/relative_layout_eyeSettings"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -20,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
+            android:textSize="24sp"
             android:text="Start"/>
 
         <Switch
@@ -34,14 +36,16 @@
     </RelativeLayout>
 
     <View
-
+        android:id="@+id/view_eyeSettings"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/black"
+        android:layout_below="@id/relative_layout_eyeSettings"
         />
 
 
     <TextView
+        android:id="@+id/text_view_eyeSettings"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginBottom="16dp"
@@ -50,9 +54,12 @@
         android:layout_marginTop="16dp"
         android:text="Settings"
         android:textSize="40sp"
+        android:layout_below="@id/view_eyeSettings"
         />
 
     <RelativeLayout
+        android:id="@+id/relative_layout_periodicity_eyeSettings"
+        android:layout_below="@id/text_view_eyeSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -78,12 +85,15 @@
 
 
     <RelativeLayout
+        android:id="@+id/relative_layout_regime_eyeSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/relative_layout_periodicity_eyeSettings"
+        >
 
         <TextView
             android:layout_height="wrap_content"
@@ -103,12 +113,14 @@
 
 
     <RelativeLayout
+        android:id="@+id/relative_layout_durability_eyeSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/relative_layout_regime_eyeSettings">
 
         <TextView
             android:layout_height="wrap_content"
@@ -122,8 +134,20 @@
             android:id="@+id/spinner_durability_eyeSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentRight="true"
+            >
         </Spinner>
 
     </RelativeLayout>
-</LinearLayout>
+
+    <Button
+        android:id="@+id/button_save_eyeSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="24sp"
+        android:text="Save" />
+</RelativeLayout>
