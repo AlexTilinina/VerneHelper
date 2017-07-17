@@ -22,7 +22,7 @@
         <activity android:name=".EyeExercise" />
         <activity android:name=".EyeSettings" />
         <activity android:name=".PushNotifActivity" />
-        <activity android:name=".DietInfo"></activity>
+        <activity android:name=".DiseaseInfo"></activity>
     </application>
 
 </manifest>
