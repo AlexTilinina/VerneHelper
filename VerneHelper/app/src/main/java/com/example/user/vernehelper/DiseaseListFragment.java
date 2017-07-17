@@ -87,7 +87,7 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
         List<String> symptoms = new ArrayList<>();
         symptoms.addAll(Arrays.asList(getResources().getStringArray(R.array.diet)));
         diseaseList.add(new Disease("Диета", symptoms, "Диета, которую необходимо соблюдать для поддержания нормального уровня сахара в крови"));
-        String[] diseases = getResources().getStringArray(R.array.disease_names);
+        String [] diseases = getResources().getStringArray(R.array.disease_names);
         String [] disDesc = getResources().getStringArray(R.array.disease_descriptions);
         String [] sympt = getResources().getStringArray(R.array.symptoms);
         for (int i = 0; i < diseases.length; i++) {

@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DiseaseInfo.class);
                 startActivity(intent);
+            }
+        });
         button = (ImageView) findViewById(R.id.image_view_exeForEyes_main);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -33,3 +35,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
