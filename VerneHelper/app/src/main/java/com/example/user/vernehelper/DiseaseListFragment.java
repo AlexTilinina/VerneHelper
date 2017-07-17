@@ -4,9 +4,13 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +18,9 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.user.vernehelper.DataBase.DBHelper;
+import com.example.user.vernehelper.DataBase.DiseaseTable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,6 +36,10 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
     RecyclerView.LayoutManager layoutManager;
     List<Disease> diseaseList;
     DiseaseInfoFragment infoFragment;
+    DBHelper helper;
+    DiseaseTable diseaseTable;
+    SQLiteDatabase db;
+
 
     @Nullable
     @Override
@@ -36,11 +47,17 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
         return inflater.inflate(R.layout.disease_list_fragment, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        createList();
+        diseaseTable = new DiseaseTable();
+        helper = new DBHelper(getContext());
+        db = helper.getWritableDatabase();
+
+        diseaseList = diseaseTable.getAllDiseasesFromDB(db);
+        diseaseList = diseaseList.size() == 0 ? createList() : diseaseList;
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         diseaseAdapter = new DiseaseAdapter(diseaseList, this);
@@ -82,7 +99,8 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
         }
     }
 
-    public void createList(){
+    public List<Disease> createList(){
+
         diseaseList = new ArrayList<>();
         List<String> symptoms = new ArrayList<>();
         symptoms.addAll(Arrays.asList(getResources().getStringArray(R.array.diet)));
@@ -94,6 +112,10 @@ public class DiseaseListFragment extends Fragment implements DiseaseAdapter.Dise
             String [] symps = sympt[i].split(", ");
             diseaseList.add(new Disease(diseases[i], Arrays.asList(symps), disDesc[i]));
         }
+        for (Disease disease: diseaseList){
+            diseaseTable.insert(db, disease);
+        }
+        return diseaseList;
     }
 
 }
