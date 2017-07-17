@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.user.vernehelper.EyeExercise">
+
+
+    <com.example.user.vernehelper.ViewPagerForExe
+        android:background="#FFFFFF"
+        android:layout_weight="1"
+        android:id="@+id/view_pager_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/frame_layout_eye_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.example.user.vernehelper.ViewPagerForExe>
+
+    <Chronometer
+        android:id="@+id/chronometer_time_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:layout_weight="3" />
+
+    <Button
+        android:id="@+id/button_start_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:text="Start"
+        android:layout_weight="3" />
+
+</LinearLayout>
