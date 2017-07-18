@@ -2,13 +2,19 @@ package com.example.user.vernehelper;
 
 import android.Manifest;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.user.vernehelper.DataBase.DBHelper;
+import com.example.user.vernehelper.DataBase.ImageTable;
 import com.example.user.vernehelper.imageList.ImageList;
+import com.example.user.vernehelper.imageList.ModelItem;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -21,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView takePhoto;
     ImageView diseases;
     ImageView button;
+    SQLiteDatabase db;
+    DBHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
                         Manifest.permission.CAMERA
 
                 ).withListener(new MultiplePermissionsListener() {
-            @Override public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
-            @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
         }).check();
 
         diseases = (ImageView) findViewById(R.id.image_view_dietAndPills_main);
@@ -62,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ImageList.class));
             }
         });
+
     }
 }
 

@@ -113,6 +113,8 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <string name="delete_card">Удалить карточку</string>
+    <string name="change_description">Изменить описание</string>
     <string name="exercise_one">Быстро и легко моргайте.</string>
     <string name="exercise_two">Выбираем за окном далекий объект, несколько секунд смотрим вдаль, потом переводим взгляд на окно.</string>
     <string name="exercise_three">Сидим прямо. Крепко зажмуриваем глаза на 5 секунд, затем широко открываем их. Повторяем</string>

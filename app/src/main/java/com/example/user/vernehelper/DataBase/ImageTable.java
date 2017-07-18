@@ -23,8 +23,11 @@ public class ImageTable {
     public static final String ID_COLUMN = "image_id";
     public Uri URI;
 
+
+
     public static String createTable(){
         return "CREATE TABLE " + IMAGE_TABLE_NAME + " (" +
+                ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 IMAGE_COLUMN_DESCR + " TEXT, " +
                 URI_COLUMN + " TEXT)";
     }
@@ -32,33 +35,41 @@ public class ImageTable {
     public void insert(SQLiteDatabase db, ModelItem modelItem){
         ContentValues cv = new ContentValues();
         cv.put(IMAGE_COLUMN_DESCR, modelItem.getDescription());
-        cv.put(URI_COLUMN, modelItem.getPhotoUri().getPath());
-        int modelItemID = (int) db.insert(IMAGE_TABLE_NAME, null, cv);
+        cv.put(URI_COLUMN, modelItem.getPhotoUri().toString());
 
+        db.insert(IMAGE_TABLE_NAME, null, cv);
         // TODO: 17.07.2017 Нужны столбы с описанием, с id, с uri.
 
     }
+
+
+
+    List<ModelItem> photoInf = new ArrayList<>();
+
     public List<ModelItem> getModelItems(SQLiteDatabase db){
 
         String selectQuerry = "SELECT "
+                + ID_COLUMN + ", "
                 + IMAGE_COLUMN_DESCR  + ", "
                 + URI_COLUMN + " "
                 + "FROM " + IMAGE_TABLE_NAME;
 
-        Cursor cursor = db.rawQuery(selectQuerry, null);
 
-        List<ModelItem> photoInf = new ArrayList<>();
-        if (cursor != null){
-            if (cursor.moveToFirst()){
-                String str = "";
+
+        Cursor c = db.rawQuery(selectQuerry, null);
+
+
+        if (c != null){
+            if (c.moveToFirst()){
                 do {
-                    for (String cn : cursor.getColumnNames()){
-                        str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
-                    }
-                    photoInf.add(new ModelItem(cursor.getString(cursor.getColumnIndex(IMAGE_COLUMN_DESCR)),Uri.parse(cursor.getString(cursor.getColumnIndex(URI_COLUMN)))));
-                } while (cursor.moveToNext());
+
+                    photoInf.add(new ModelItem(
+                            c.getString(c.getColumnIndex(IMAGE_COLUMN_DESCR)),
+                            Uri.parse(c.getString(c.getColumnIndex(URI_COLUMN))))
+                    );
+                } while (c.moveToNext());
             }
-            cursor.close();
+            c.close();
         }
         return photoInf;
     }
