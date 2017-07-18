@@ -1,6 +1,8 @@
 package com.example.user.vernehelper.imageList;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -17,6 +19,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.user.vernehelper.DataBase.DBHelper;
@@ -50,10 +53,11 @@ public class ImageList extends AppCompatActivity {
     CameraHelper cameraHelper;
     Uri mOutputFileUri;
     File directory;
+    private String YouEditTextValue = "";
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
 
@@ -99,7 +103,31 @@ public class ImageList extends AppCompatActivity {
         takePhotoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveFullImage();
+                    AlertDialog.Builder alert = new AlertDialog.Builder(ImageList.this);
+                    final EditText edittext = new EditText(ImageList.this);
+                    alert.setMessage("Введите описание");
+                    alert.setTitle("Введите описание к вашему фото");
+
+                    alert.setView(edittext);
+
+                    alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            //OR
+                            YouEditTextValue = edittext.getText().toString();
+                            saveFullImage();
+
+                        }
+                    });
+
+                    alert.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // what ever you want to do with No option.
+                            YouEditTextValue = "false";
+                        }
+                    });
+
+                    alert.show();
+
 
             }
         });
@@ -121,12 +149,12 @@ public class ImageList extends AppCompatActivity {
                     data.getExtras().get("data");
                     // TODO Какие-то действия с миниатюрой
 
-                    imageTable.insert(db, new ModelItem(cameraHelper.getYouEditTextValue(), cameraHelper.getImageUri(this, thumbnailBitmap)));
+                    imageTable.insert(db, new ModelItem(YouEditTextValue, cameraHelper.getImageUri(this, thumbnailBitmap)));
                     photoInf = imageTable.getModelItems(db);
-                    helper.onUpgrade(db,1,2);
+                  //  helper.onUpgrade(db,1,2);
                 } else {
                     data.getExtras().get("data");
-                    imageTable.insert(db, new ModelItem(cameraHelper.getYouEditTextValue(), mOutputFileUri));
+                    imageTable.insert(db, new ModelItem(YouEditTextValue, mOutputFileUri));
                     photoInf = imageTable.getModelItems(db);
                 }
                 imageRvAdapter = new ImageRvAdapter(photoInf);
@@ -135,9 +163,22 @@ public class ImageList extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     // TODO: 17.07.2017 Сохраняем изображение в галерею
     public void saveFullImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+       // cameraHelper.alert(this);
         File file = new File(directory.getPath() + "/" + "photo_"
                 + System.currentTimeMillis() + ".jpg");
         mOutputFileUri = Uri.fromFile(file);
@@ -150,10 +191,9 @@ public class ImageList extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
         }
-        startActivityForResult(intent, CAM_REQUEST);
-        //cameraHelper.alert(this);
+            startActivityForResult(intent, CAM_REQUEST);
+
 
 
     }
@@ -167,8 +207,9 @@ public class ImageList extends AppCompatActivity {
             directory.mkdirs();
     }
 
-   // public void deleteFromDB(int position){
-       // db.delete("ImageTable","id = " + position,null);
+    public void deleteFromDB(int id){
+        int delCount = db.delete("mytable", "id = " + id, null);
 
-    //}
+
+    }
 }

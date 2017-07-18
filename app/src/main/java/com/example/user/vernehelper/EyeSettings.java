@@ -5,7 +5,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,7 +48,7 @@ public class EyeSettings extends AppCompatActivity {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +60,7 @@ public class EyeSettings extends AppCompatActivity {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     @Override
     protected void onStart() {
 
@@ -233,7 +232,7 @@ public class EyeSettings extends AppCompatActivity {
         startActivity(intent);
     }
 //////////////////////////////////////////////////// new method
-    @RequiresApi(api = Build.VERSION_CODES.N)
+  //  @RequiresApi(api = Build.VERSION_CODES.N)
     public void sendMessage(){
         Intent intent = new Intent(getApplicationContext(),Notificatio_reciever_for_eyes.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),205,intent,PendingIntent.FLAG_CANCEL_CURRENT);

@@ -39,36 +39,31 @@ public class ImageRvAdapter extends RecyclerView.Adapter<ImageRvAdapter.ModelIte
     public void onBindViewHolder(final ModelItemViewHolder holder, final int position) {
         holder.description.setText(items.get(position).getDescription());
         holder.personPhoto.setImageURI(items.get(position).getPhotoUri());
-        holder.description.setTag(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(v.getContext(), v);
-                popup.inflate(R.menu.photo_card_menu);
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.delete_card:
-                                items.remove(position);
-                                notifyItemRemoved(position);
-                             //   imglist.deleteFromDB(position);
-
-                                break;
-                            case R.id.change_description:
-
-                                break;
-
-                        }
-                        return false;
-                    }
-                });
-                popup.show();
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PopupMenu popup = new PopupMenu(v.getContext(), v);
+//                popup.inflate(R.menu.photo_card_menu);
+//                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                    @Override
+//                    public boolean onMenuItemClick(MenuItem item) {
+//                        switch (item.getItemId()) {
+//                            case R.id.delete_card:
+//                                items.remove(position);
+//                                notifyItemRemoved(position);
+//                                imglist.deleteFromDB(position);
+//                                return true;
+//
+//
+//                        }
+//                        return false;
+//                    }
+//                });
+//                popup.show();
             }
-        });
-    }
+//        });
+//    }
 
 
     public ImageRvAdapter(List<ModelItem> items) {

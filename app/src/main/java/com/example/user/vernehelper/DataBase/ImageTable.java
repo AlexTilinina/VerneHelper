@@ -20,7 +20,7 @@ public class ImageTable {
     public static final String IMAGE_TABLE_NAME = "imageTable";
     public static final String IMAGE_COLUMN_DESCR = "image_descr";
     public static final String URI_COLUMN = "image_uri";
-    public static final String ID_COLUMN = "image_id";
+    public static final String ID_COLUMN = "id";
     public Uri URI;
 
 

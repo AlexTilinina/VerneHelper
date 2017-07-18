@@ -23,7 +23,6 @@ import java.lang.reflect.Method;
 
 public class CameraHelper {
     private String YouEditTextValue = "test";
-
     public String getYouEditTextValue() {
         return YouEditTextValue;
     }
@@ -36,31 +35,6 @@ public class CameraHelper {
         return Uri.parse(path);
     }
 
-    // TODO: 17.07.2017 create AlertDiolog for description
-    public String alert(Context context) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        final EditText edittext = new EditText(context);
-        alert.setMessage("Введите описание");
-        alert.setTitle("Введите описание к вашему фото");
 
-        alert.setView(edittext);
-
-        alert.setPositiveButton("Yes Option", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                //OR
-                YouEditTextValue = edittext.getText().toString();
-            }
-        });
-
-        alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // what ever you want to do with No option.
-                YouEditTextValue = "";
-            }
-        });
-
-        alert.show();
-        return YouEditTextValue;
-    }
 
 }

@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView takePhoto;
     ImageView diseases;
     ImageView button;
-    @RequiresApi(api = Build.VERSION_CODES.N)
+  //  @RequiresApi(api = Build.VERSION_CODES.N)
     SQLiteDatabase db;
     DBHelper helper;
-    @RequiresApi(api = Build.VERSION_CODES.N)
+  //  @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         create_Notification();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+ //   @RequiresApi(api = Build.VERSION_CODES.N)
     public void create_Notification(){
         Calendar calendar = Calendar.getInstance();
         Calendar calendar2 = Calendar.getInstance();
