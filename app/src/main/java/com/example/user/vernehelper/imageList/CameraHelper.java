@@ -22,8 +22,6 @@ import java.lang.reflect.Method;
  */
 
 public class CameraHelper {
-    File directory;
-    private static final int CAM_REQUEST = 1;
     private String YouEditTextValue = "test";
 
     public String getYouEditTextValue() {

@@ -1,5 +1,6 @@
 package com.example.user.vernehelper.imageList;
 
+import android.Manifest;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -21,6 +22,11 @@ import com.example.user.vernehelper.DataBase.DBHelper;
 import com.example.user.vernehelper.DataBase.ImageTable;
 import com.example.user.vernehelper.Disease;
 import com.example.user.vernehelper.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -29,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ImageList extends AppCompatActivity {
-    private static final int CAM_REQUEST = 1;
+    private static final int CAM_REQUEST = 12124;
     // TODO: 17.07.2017 Initialize
     RecyclerView imgRecycler;
     LinearLayoutManager verticalLinearLayoutManager;
@@ -49,10 +55,24 @@ public class ImageList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
+
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA
+
+                ).withListener(new MultiplePermissionsListener() {
+            @Override public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
+            @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+        }).check();
         createDirectory();
+
+
         if (photoInf == null) {
             photoInf = new ArrayList<>();
-        } else photoInf = imageTable.getModelItems(db);
+        }  else {photoInf = imageTable.getModelItems(db);}
+
         // TODO: 17.07.2017 Initialize recycler
         imgRecycler = (RecyclerView) findViewById(R.id.img_recycler);
         verticalLinearLayoutManager = new LinearLayoutManager(this);
@@ -60,6 +80,8 @@ public class ImageList extends AppCompatActivity {
         imgRecycler.setLayoutManager(verticalLinearLayoutManager);
         imageRvAdapter = new ImageRvAdapter(photoInf);
         imgRecycler.setAdapter(imageRvAdapter);
+
+
 
         // TODO: 17.07.2017 take info from database
         imageTable = new ImageTable();
@@ -85,6 +107,8 @@ public class ImageList extends AppCompatActivity {
     }
 
     // TODO: 17.07.2017 Переопределил метод OnActivityResult
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -92,12 +116,17 @@ public class ImageList extends AppCompatActivity {
             // Проверяем, содержит ли результат маленькую картинку
             if (data != null) {
                 if (data.hasExtra("data")) {
-                  Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
+                    Bitmap thumbnailBitmap = (Bitmap) data.getExtras().get("data");
                     data.getExtras().get("data");
                     // TODO Какие-то действия с миниатюрой
-                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),cameraHelper.getImageUri(this,thumbnailBitmap)));}
-                    else{
-                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),mOutputFileUri));}
+                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),cameraHelper.getImageUri(this,thumbnailBitmap)));
+                    photoInf = imageTable.getModelItems(db);
+
+            }
+                else{
+                    data.getExtras().get("data");
+                    imageTable.insert(db,new ModelItem(cameraHelper.getYouEditTextValue(),mOutputFileUri));
+                    photoInf = imageTable.getModelItems(db);}
 
 
 
@@ -121,17 +150,17 @@ public class ImageList extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            startActivityForResult(intent, CAM_REQUEST);
-           cameraHelper.alert(this);
+
 
 
         }
+        startActivityForResult(intent, CAM_REQUEST);
+        //cameraHelper.alert(this);
 
 
     }
     // TODO: 17.07.2017 Создаем директорию для хранения фото
     public void createDirectory (){
-
         directory = new File(Environment
                 .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
                 "NautilusApp");

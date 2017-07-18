@@ -25,25 +25,24 @@ public class ImageTable {
 
     public static String createTable(){
         return "CREATE TABLE " + IMAGE_TABLE_NAME + " (" +
-                ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 IMAGE_COLUMN_DESCR + " TEXT, " +
                 URI_COLUMN + " TEXT)";
     }
 
-
     public void insert(SQLiteDatabase db, ModelItem modelItem){
         ContentValues cv = new ContentValues();
-        cv.put(URI_COLUMN, modelItem.getPhotoUri().getPath());
         cv.put(IMAGE_COLUMN_DESCR, modelItem.getDescription());
+        cv.put(URI_COLUMN, modelItem.getPhotoUri().getPath());
         int modelItemID = (int) db.insert(IMAGE_TABLE_NAME, null, cv);
 
         // TODO: 17.07.2017 Нужны столбы с описанием, с id, с uri.
 
     }
     public List<ModelItem> getModelItems(SQLiteDatabase db){
+
         String selectQuerry = "SELECT "
-                + URI_COLUMN + ", "
-                + IMAGE_COLUMN_DESCR + " "
+                + IMAGE_COLUMN_DESCR  + ", "
+                + URI_COLUMN + " "
                 + "FROM " + IMAGE_TABLE_NAME;
 
         Cursor cursor = db.rawQuery(selectQuerry, null);
@@ -56,7 +55,7 @@ public class ImageTable {
                     for (String cn : cursor.getColumnNames()){
                         str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
                     }
-                    photoInf.add(new ModelItem(cursor.getString(cursor.getColumnIndex(IMAGE_COLUMN_DESCR)),URI.parse(cursor.getString(cursor.getColumnIndex(URI_COLUMN)))));
+                    photoInf.add(new ModelItem(cursor.getString(cursor.getColumnIndex(IMAGE_COLUMN_DESCR)),Uri.parse(cursor.getString(cursor.getColumnIndex(URI_COLUMN)))));
                 } while (cursor.moveToNext());
             }
             cursor.close();

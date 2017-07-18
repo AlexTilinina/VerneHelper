@@ -18,6 +18,7 @@ import java.util.List;
  */
 
 public class ImageRvAdapter extends RecyclerView.Adapter<ImageRvAdapter.ModelItemViewHolder> {
+    public List<ModelItem> items;
     @Override
     public ModelItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_photocard,parent,false);
@@ -41,7 +42,6 @@ public class ImageRvAdapter extends RecyclerView.Adapter<ImageRvAdapter.ModelIte
     public int getItemCount() {
         return items.size();
     }
-    public List<ModelItem> items;
     public ImageRvAdapter(List<ModelItem> items){
         this.items = items;
     }
