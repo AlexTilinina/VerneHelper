@@ -140,14 +140,4 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/button_save_eyeSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:textSize="24sp"
-        android:text="Save" />
 </RelativeLayout>

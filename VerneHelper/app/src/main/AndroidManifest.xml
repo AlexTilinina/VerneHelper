@@ -23,7 +23,11 @@
         <activity android:name=".EyeSettings" />
         <activity android:name=".PushNotifActivity" />
         <activity android:name=".DiseaseInfo" />
+<<<<<<< HEAD
         <activity android:name=".imgList.ImageList"></activity>
+=======
+        <activity android:name=".GoodWorkActivity"></activity>
+>>>>>>> 506f2156aa9f26f0453b33edb424b51885e57d8b
     </application>
 
 </manifest>

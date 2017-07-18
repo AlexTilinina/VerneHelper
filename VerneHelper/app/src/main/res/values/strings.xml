@@ -99,7 +99,6 @@
         <item>Пользовательский</item>
         <item>Письмо</item>
         <item>Чтение</item>
-
     </string-array>
     <string-array name="periodicity">
         <item>30</item>

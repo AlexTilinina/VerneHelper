@@ -37,8 +37,6 @@ public class EyeSettings extends AppCompatActivity {
     String setPeriodicity;
     String setDurability;
 
-    Button save;
-
     public static final String SHARE_PREFERENCES_NAME = "EeySettings";
 
     ArrayAdapter<CharSequence> periodicityAdapter;
@@ -78,7 +76,6 @@ public class EyeSettings extends AppCompatActivity {
 
         super.onStart();
 
-
     }
 
 
@@ -88,7 +85,6 @@ public class EyeSettings extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARE_PREFERENCES_NAME,MODE_PRIVATE);
 
         start = (Button) findViewById(R.id.button_start_eyeSetting);
-        save = (Button) findViewById(R.id.button_save_eyeSettings);
 
         on = (Switch) findViewById(R.id.switch_eyeSetting);
 
@@ -108,18 +104,13 @@ public class EyeSettings extends AppCompatActivity {
         durabilityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         durability.setAdapter(durabilityAdapter);
 
-        posPer = sharedPreferences.getInt(PERIODICITY,0);
-        posDur = sharedPreferences.getInt(DURABILITY,0);
-        posReg = sharedPreferences.getInt(REGIME,0);
-
-        periodicity.setSelection(posPer);
-        durability.setSelection(posDur);
-        regime.setSelection(posReg);
+        periodicity.setSelection(sharedPreferences.getInt(PERIODICITY,0));
+        durability.setSelection(sharedPreferences.getInt(DURABILITY,0));
+        regime.setSelection(sharedPreferences.getInt(REGIME,0));
 
         //////
 
-        checked = sharedPreferences.getBoolean(SWITCH,false);
-        on.setChecked(checked);
+        on.setChecked(sharedPreferences.getBoolean(SWITCH,false));
     }
 
     private void setListeners(){
@@ -133,22 +124,13 @@ public class EyeSettings extends AppCompatActivity {
             }
         });
 
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPreferences.edit()
-                        .putInt(PERIODICITY,posPer)
-                        .putInt(DURABILITY,posDur)
-                        .putInt(REGIME,posReg)
-                        .putBoolean(SWITCH,checked)
-                        .apply();
-            }
-        });
-
         on.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checked = isChecked;
+                sharedPreferences.edit()
+                        .putBoolean(SWITCH,checked)
+                        .apply();
             }
         });
 
@@ -157,6 +139,9 @@ public class EyeSettings extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 posPer = position;
                 setPeriodicity = periodicity.getItemAtPosition(position).toString();
+                sharedPreferences.edit()
+                        .putInt(PERIODICITY,position)
+                        .apply();
             }
 
             @Override
@@ -170,6 +155,9 @@ public class EyeSettings extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 posDur = position;
                 setDurability = durability.getItemAtPosition(position).toString();
+                sharedPreferences.edit()
+                        .putInt(DURABILITY,position)
+                        .apply();
             }
 
             @Override
@@ -181,20 +169,24 @@ public class EyeSettings extends AppCompatActivity {
         regime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                posReg = position;
+                sharedPreferences.edit().putInt(REGIME,position).apply();
                 String itemText = regime.getSelectedItem().toString();
                 switch (itemText){
                     case "Чтение":
                         durability.setEnabled(false);
                         periodicity.setEnabled(false);
-                        durability.setSelection(1);
-                        periodicity.setSelection(0);
+                        posDur = 1;
+                        durability.setSelection(posDur);
+                        posPer = 0;
+                        periodicity.setSelection(posPer);
                         setDurability = durability.getSelectedItem().toString();
                         setPeriodicity = periodicity.getSelectedItem().toString();
                         break;
                     case "Письмо":
                         durability.setEnabled(false);
                         periodicity.setEnabled(false);
+                        posDur = 0;
+                        posPer = 3;
                         durability.setSelection(0);
                         periodicity.setSelection(3);
                         setDurability = durability.getSelectedItem().toString();
@@ -208,6 +200,11 @@ public class EyeSettings extends AppCompatActivity {
                         setPeriodicity = periodicity.getSelectedItem().toString();
                         break;
                 }
+
+                sharedPreferences.edit()
+                        .putInt(DURABILITY,posDur)
+                        .putInt(PERIODICITY,posPer)
+                        .apply();
             }
 
             @Override
@@ -217,6 +214,7 @@ public class EyeSettings extends AppCompatActivity {
         });
 
     }
+
 ///////////////////////////////////////////////////// hz
     @Override
     public void onBackPressed() {

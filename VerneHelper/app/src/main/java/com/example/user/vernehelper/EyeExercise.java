@@ -62,7 +62,7 @@ public class EyeExercise extends AppCompatActivity {
                         viewPager.setCurrentItem(count);
                     }else{
                         count = 0;
-                        Intent intent = new Intent(EyeExercise.this,MainActivity.class);
+                        Intent intent = new Intent(EyeExercise.this,GoodWorkActivity.class);
                         startActivity(intent);
                     }
                 }
