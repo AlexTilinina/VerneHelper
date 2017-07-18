@@ -134,21 +134,12 @@ public class EyeSettings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checked = isChecked;
-                if (on.isChecked()){
-                    sharedPreferences.edit()
-                            .putInt(PERIODICITY,posPer)
-                            .putInt(DURABILITY,posDur)
-                            .putInt(REGIME,posReg)
-                            .putBoolean(SWITCH,checked)
-                            .apply();
-                } else {
-                    sharedPreferences.edit()
-                            .putInt(PERIODICITY,posPer)
-                            .putInt(DURABILITY,posDur)
-                            .putInt(REGIME,posReg)
-                            .putBoolean(SWITCH,checked)
-                            .apply();
-                }
+                sharedPreferences.edit()
+                        .putInt(PERIODICITY,posPer)
+                        .putInt(DURABILITY,posDur)
+                        .putInt(REGIME,posReg)
+                        .putBoolean(SWITCH,checked)
+                        .apply();
             }
         });
 

@@ -26,7 +26,7 @@ public class Notification_reciever extends BroadcastReceiver {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.around)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Следи за своим сахаром")
                 .setContentText("Братан, я волнуюсь")
                 .setAutoCancel(true)
