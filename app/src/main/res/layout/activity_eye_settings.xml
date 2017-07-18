@@ -15,14 +15,17 @@
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button_start_eyeSetting"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:textSize="24sp"
-            android:text="Start"/>
+            android:layout_alignParentTop="true"
+            android:text="Start"
+            android:textColor="@color/button_text"
+            android:textSize="24sp" />
 
         <Switch
             android:layout_width="wrap_content"
@@ -31,6 +34,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:text="Off/On"
+            android:textColor="@color/button_text"
             android:textSize="24sp"
             />
     </RelativeLayout>
@@ -71,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_alignParentLeft="true"
-            android:text="Периодичность"
+            android:text="Периодичность(мин)"
             android:textSize="24sp"
             />
 
@@ -126,7 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_alignParentLeft="true"
-            android:text="Длительность"
+            android:text="Длительность(мин)"
             android:textSize="24sp"
             />
 
@@ -139,15 +143,4 @@
         </Spinner>
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/button_save_eyeSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:textSize="24sp"
-        android:text="Save" />
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.user.vernehelper.DataBase;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class SymptomsTable {
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_DISEASE_ID, diseaseID);
         cv.put(COLUMN_DISEASE_NAME, symptom);
-        diseaseID = (int) db.insert(SYMPTOMS_TABLE_NAME, null, cv);
+        db.insert(SYMPTOMS_TABLE_NAME, null, cv);
     }
 
     public List<String> getSymptomsById(SQLiteDatabase db, int diseaseID){
@@ -48,7 +49,8 @@ public class SymptomsTable {
                     for (String cn : cursor.getColumnNames()){
                         str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
                     }
-                    sympts.add(cursor.getString(cursor.getColumnIndex(COLUMN_DISEASE_NAME)));
+                    if (cursor.getString(cursor.getColumnIndex(COLUMN_DISEASE_ID)).equals(diseaseID + ""))
+                        sympts.add(cursor.getString(cursor.getColumnIndex(COLUMN_DISEASE_NAME)));
                 } while (cursor.moveToNext());
             }
             cursor.close();

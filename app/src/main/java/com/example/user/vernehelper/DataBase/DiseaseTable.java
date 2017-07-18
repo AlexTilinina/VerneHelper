@@ -3,6 +3,7 @@ package com.example.user.vernehelper.DataBase;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.user.vernehelper.Disease;
 
@@ -57,8 +58,9 @@ public class DiseaseTable {
                     for (String cn : cursor.getColumnNames()){
                         str = str.concat(cn + " = " + cursor.getString(cursor.getColumnIndex(cn)) + "; ");
                     }
+                    Log.d("DATABSE", cursor.getColumnIndex(ID_COLUMN) + "");
                     diseases.add(new Disease(cursor.getString(cursor.getColumnIndex(NAME_COLUMN)),
-                            symptomsTable.getSymptomsById(db, cursor.getColumnIndex(ID_COLUMN)),
+                            symptomsTable.getSymptomsById(db, cursor.getInt(cursor.getColumnIndex(ID_COLUMN))),
                             cursor.getString(cursor.getColumnIndex(DESC_COLUMN))));
                 } while (cursor.moveToNext());
             }

@@ -3,24 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\User\.android\build-cache\cc214cd5ed95909f65e21e9261f73651a2fc51b0\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="D:\projects\VerneHelper\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d70ee43e46c77ffca78bf3be6ae9de93fad49a74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\projects\VerneHelper\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="94517c07c759e01a4960756cf4098c219a3186a2">
-        <dex dex="D:\projects\VerneHelper\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7958544cd10dfbd0b25a8be088abd8fcb2525e30\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\User\.android\build-cache\dd0a344bc1d15423004fe88895ac2ee2d4bf03c1\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -36,6 +18,24 @@
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="D:\projects\VerneHelper\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_934bce7d37bcc17581558e32dd0c80505b5914b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\projects\VerneHelper\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="181b731f2ba9cbe662ab64cb7dbd644a17c8f712">
+        <dex dex="D:\projects\VerneHelper\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7958544cd10dfbd0b25a8be088abd8fcb2525e30\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\.android\build-cache\cc214cd5ed95909f65e21e9261f73651a2fc51b0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="D:\projects\VerneHelper\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d70ee43e46c77ffca78bf3be6ae9de93fad49a74\classes.dex" />
     </item>
     <item
         is-multidex="true"

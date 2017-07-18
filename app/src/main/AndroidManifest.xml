@@ -26,7 +26,10 @@
         <activity android:name=".EyeSettings" />
         <activity android:name=".PushNotifActivity" />
         <activity android:name=".DiseaseInfo" />
-        <activity android:name=".imageList.ImageList"></activity>
+        <activity android:name=".GoodWorkActivity" />
+        <activity android:name=".imageList.ImageList" />
+        <receiver android:name=".Notification_reciever"/>
+        <receiver android:name=".Notificatio_reciever_for_eyes"/>
     </application>
 
 </manifest>

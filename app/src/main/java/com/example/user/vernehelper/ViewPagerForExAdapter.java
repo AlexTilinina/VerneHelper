@@ -15,6 +15,8 @@ import com.example.user.vernehelper.EyeFragments.EyeExerciseFragmentTwo;
 
 public class ViewPagerForExAdapter extends FragmentPagerAdapter {
 
+    public static final int exCount = 4;
+
     public ViewPagerForExAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -35,6 +37,6 @@ public class ViewPagerForExAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return exCount;
     }
 }
