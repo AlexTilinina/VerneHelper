@@ -13,7 +13,7 @@ import java.util.List;
 public class ModelItem  {
     private String description;
     private Uri photoUri;
-    private String stringUri = photoUri.toString();
+    private String stringUri;
 
 
     public String getStringUri() {
@@ -43,6 +43,7 @@ public class ModelItem  {
     public ModelItem(String description, Uri photoUri) {
         this.description = description;
         this.photoUri = photoUri;
+        stringUri = photoUri.toString();
     }
 
     public String getDescription() {

@@ -28,16 +28,6 @@
         android:layout_weight="3">
 
         <ImageView
-            android:id="@+id/image_view_gallery_main"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            android:src="@drawable/circle_travel"
-            />
-
-        <ImageView
             android:id="@+id/image_view_exeForEyes_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

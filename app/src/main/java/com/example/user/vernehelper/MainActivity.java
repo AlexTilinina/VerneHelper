@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -12,8 +14,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.user.vernehelper.DataBase.DBHelper;
+import com.example.user.vernehelper.DataBase.ImageTable;
 import com.example.user.vernehelper.imageList.ImageList;
+import com.example.user.vernehelper.imageList.ModelItem;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -27,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView diseases;
     ImageView button;
     @RequiresApi(api = Build.VERSION_CODES.N)
+    SQLiteDatabase db;
+    DBHelper helper;
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
                         Manifest.permission.CAMERA
 
                 ).withListener(new MultiplePermissionsListener() {
-            @Override public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
-            @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
         }).check();
 
         diseases = (ImageView) findViewById(R.id.image_view_dietAndPills_main);
